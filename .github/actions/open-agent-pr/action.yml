@@ -53,10 +53,10 @@ runs:
         set -euo pipefail
         mkdir -p .ci
         {
-          echo "## Plan"
+          echo "## Plan (required)"
           echo
           echo "- **Goal:** $(jq -r '.goal // "N/A"' out/plan.json)"
-          echo "- **Scope (paths/files):** $(jq -r '(.scope // []) | join(", ")' out/plan.json)"
+          echo "- **Scope (paths/files):** $(jq -r '.scope // [] | if type == "array" then join(", ") else tostring end' out/plan.json)"
           echo "- **Steps:**"
           jq -r '(.steps // []) | to_entries[] | "  \(.key + 1). \(.value)"' out/plan.json
           echo "- **Success criteria (verifiable):**"
