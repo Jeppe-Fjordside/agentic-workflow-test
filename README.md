@@ -63,3 +63,16 @@ See the [evaluator documentation](./docs/evaluator.md) for usage, arguments, eva
 
 In this repository we aim to have an application residing in the src folder. Here you can find a description of it and functional requirements.
 
+## Game development
+
+The McSquishy game scaffold uses a local TypeScript, Vite, and Vitest toolchain. From the repository root:
+
+```bash
+npm install
+npm run dev
+npm run build
+npm test
+npm run typecheck
+```
+
+The game source is organized into `src/game/`, `src/render/`, `src/input/`, and `src/levels/`. The scaffold does not load external resources or depend on cloud services.
